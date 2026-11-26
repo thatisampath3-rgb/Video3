@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="te"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video Ready</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main class="wrap"><section class="panel center"><div class="badge">SVSC</div><h1>మీ వీడియో సిద్ధంగా ఉంది!</h1>
+<video controls playsinline src="{{ video }}"></video>
+<a class="button" href="{{ video }}" download="{{ filename }}">⬇ MP4 Download</a>
+<a class="back" href="{{ url_for('home') }}">మరో వీడియో తయారు చేయండి</a></section></main></body></html>
