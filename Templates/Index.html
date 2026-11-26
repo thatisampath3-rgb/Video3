@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="te">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVSC Automatic Video Creator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="wrap">
+  <header><div class="badge">SVSC</div><div><h1>Automatic Video Creator Pro</h1><p>Script నుంచి తెలుగు వాయిస్‌తో MP4 వీడియో</p></div></header>
+  {% with messages = get_flashed_messages() %}{% if messages %}<div class="alert">{% for m in messages %}{{m}}{% endfor %}</div>{% endif %}{% endwith %}
+  <form method="post" enctype="multipart/form-data" class="panel">
+    <label>వీడియో టైటిల్</label>
+    <input name="title" value="మరుగున పడిన నిజం" placeholder="వీడియో పేరు">
+    <label>సీన్ స్క్రిప్ట్ <small>(ప్రతి కొత్త లైన్ = ఒక సీన్ / వాయిస్ భాగం)</small></label>
+    <textarea name="scenes" rows="9" placeholder="వైష్ణవి రాత్రి ఒంటరిగా గదిలో కూర్చుని ఉంది.&#10;అప్పుడే ఆమె ఫోన్ మోగింది.&#10;అవతలి వ్యక్తి ఒక రహస్యాన్ని చెప్పాడు." required></textarea>
+    <label>ప్రతి సీన్‌కు ఇమేజెస్ (ఐచ్ఛికం)</label>
+    <input type="file" name="images" accept="image/*" multiple>
+    <p class="hint">ఇమేజెస్‌ను సీన్ క్రమంలో ఎంచుకోండి. ఇమేజ్ ఇవ్వకపోతే ఆటోమేటిక్ బ్యాక్‌గ్రౌండ్ తయారవుతుంది.</p>
+    <div class="row">
+      <div><label>తెలుగు వాయిస్</label>
+        <select name="voice"><option value="te-IN-ShrutiNeural">తెలుగు మహిళా వాయిస్ – Shruti</option><option value="te-IN-MohanNeural">తెలుగు పురుష వాయిస్ – Mohan</option></select>
+      </div>
+      <div><label>వీడియో ఫార్మాట్</label>
+        <select name="ratio"><option value="9:16">9:16 – Shorts / Reels</option><option value="16:9">16:9 – YouTube</option></select>
+      </div>
+    </div>
+    <button type="submit">🎬 వీడియో తయారు చేయండి</button>
+  </form>
+  <p class="foot">Voice generation కోసం internet అవసరం. ఎక్కువ సీన్లు ఉంటే వీడియో తయారవడానికి కొంత సమయం పడుతుంది.</p>
+</main>
+</body></html>
